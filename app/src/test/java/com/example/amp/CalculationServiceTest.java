@@ -88,8 +88,44 @@ public class CalculationServiceTest {
 
     @Test
     public void stampForNonStandardLetterLessThan100gToCanadaTest(){
-        assert (CalculationService.getPrice(100,150,70,"Canada","stamp")==5.90);
+        assert (CalculationService.getPrice(100,150,70,"Canada","stamp")==1.80);
     }
+
+    @Test
+    public void meterForNonStandardLetterLessThan100gToCanadaTest(){
+        assert (CalculationService.getPrice(100,150,70,"Canada","meter")==1.71);
+    }
+
+    @Test
+    public void postalIndiciaForNonStandardLetterLessThan100gToCanadaTest(){
+        assert (CalculationService.getPrice(100,150,70,"Canada","postal indicia")==1.71);
+    }
+
+    @Test
+    public void stampForNonStandardLetterBetween100And200gToCanadaTest(){
+        assert (CalculationService.getPrice(100,150,150,"Canada","stamp")==2.95);
+    }
+
+    @Test
+    public void meterForNonStandardLetterBetween100And200gToCanadaTest(){
+        assert (CalculationService.getPrice(100,150,150,"Canada","meter")==2.77);
+    }
+
+    @Test
+    public void postalIndiciaForNonStandardLetterBetween100And200gToCanadaTest(){
+        assert (CalculationService.getPrice(100,150,150,"Canada","postal indicia")==2.77);
+    }
+
+    @Test
+    public void stampForNonStandardLetterBetween200And300gToCanadaTest(){
+        assert (CalculationService.getPrice(100,150,250,"Canada","stamp")==4.10);
+    }
+
+    @Test
+    public void meterForNonStandardLetterBetween200And300gToCanadaTest(){
+        assert (CalculationService.getPrice(100,150,250,"Canada","stamp")==3.89);
+    }
+
 
 }
 

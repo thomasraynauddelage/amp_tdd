@@ -40,7 +40,23 @@ public class CalculationService {
 
         }
         else if(weight<100){
-            price = 5.90;
+            if(type.toLowerCase().equals("stamp")) {
+                price = 1.80;
+            }
+            else{
+                price = 1.71;
+            }
+        }
+        else if(weight<200){
+            if(type.toLowerCase().equals("stamp")) {
+                price = 2.95;
+            }
+            else {
+                price = 2.77;
+            }
+        }
+        else if(weight<300){
+            price = 4.10;
         }
         return price;
 
