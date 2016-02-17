@@ -12,7 +12,7 @@
     tools:context="com.example.amp.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <Button
+    <TextView
         android:id="@+id/width"
         android:text="Width"
         android:layout_width="wrap_content"
@@ -20,7 +20,7 @@
         android:layout_below="@+id/width_input"
         android:layout_centerHorizontal="true"
         android:onClick="ClickButton" />
-    <Button
+    <TextView
         android:id="@+id/height"
         android:text="Height"
         android:layout_width="wrap_content"
@@ -28,7 +28,7 @@
         android:layout_below="@+id/height_input"
         android:layout_centerHorizontal="true"
         android:onClick="ClickButton" />
-    <Button
+    <TextView
         android:id="@+id/depth"
         android:text="Depth"
         android:layout_width="wrap_content"
@@ -38,7 +38,7 @@
         android:layout_alignStart="@+id/height"
         android:onClick="ClickButton" />
 
-    <Button
+    <TextView
         android:id="@+id/weight"
         android:text="Weight"
         android:layout_width="wrap_content"
@@ -46,7 +46,7 @@
         android:layout_below="@+id/weight_input"
         android:layout_centerHorizontal="true"
         android:onClick="ClickButton" />
-    <Button
+    <TextView
         android:id="@+id/destination"
         android:text="Destination"
         android:layout_width="wrap_content"
@@ -54,6 +54,14 @@
         android:layout_below="@+id/destination_input"
         android:layout_centerHorizontal="true"
         android:onClick="ClickButton" />
+    <Button
+        android:id="@+id/calculation"
+        android:text="Calculation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/destination"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp" />
 
     <EditText
         android:layout_width="wrap_content"
