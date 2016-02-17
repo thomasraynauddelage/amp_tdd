@@ -9,21 +9,6 @@ import static org.junit.Assert.*;
  */
 public class CalculationServiceTest {
 
-    @Test
-    public void properInputSyntaxTest(){
-
-    }
-
-    @Test
-    public void improperInputSyntaxTest(){
-
-    }
-
-    @Test
-    public void properRangeWidthInputTest(){
-        CalculationService.getPrice(100,150,30,"Canada","stamp");
-    }
-
     @Test(expected=IllegalArgumentException.class)
     public void widthTooLowInputTest(){
         CalculationService.getPrice(10,150,30,"Canada","stamp");
@@ -32,11 +17,6 @@ public class CalculationServiceTest {
     @Test(expected=IllegalArgumentException.class)
     public void widthTooHighInputTest(){
         CalculationService.getPrice(280,150,30,"Canada","stamp");
-    }
-
-    @Test
-    public void properRangeLengthInputTest(){
-        CalculationService.getPrice(100,150,30,"Canada","stamp");
     }
 
     @Test(expected=IllegalArgumentException.class)
@@ -51,11 +31,6 @@ public class CalculationServiceTest {
 
     }
 
-    @Test
-    public void properRangeWeightInputTest(){
-        CalculationService.getPrice(100,150,30,"Canada","stamp");
-    }
-
     @Test (expected=IllegalArgumentException.class)
     public void weigthTooLowInputTest(){
         CalculationService.getPrice(100,150,2,"Canada","stamp");
@@ -66,8 +41,19 @@ public class CalculationServiceTest {
         CalculationService.getPrice(100,150,550,"Canada","stamp");
     }
 
+    @Test (expected=IllegalArgumentException.class)
+    public void improperInputDestination(){
+        CalculationService.getPrice(100,150,30,"Brazil","stamp");
+    }
 
+    @Test (expected=IllegalArgumentException.class)
+    public void improperInputType(){
+        CalculationService.getPrice(100,150,30,"Canada","package");
+    }
 
-
-
+    @Test
+    public void properInput(){
+        CalculationService.getPrice(100,150,30,"Canada","stamp");
+    }
 }
+
