@@ -8,7 +8,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.EditText;
+import com.example.amp.service.CalculationService;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     EditText depth_input;
     EditText weight_input;
     EditText destination_input;
+    Button calculation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         depth_input = (EditText)findViewById(R.id.depth_input);
         weight_input= (EditText)findViewById(R.id.width_input);
         destination_input = (EditText)findViewById(R.id.destination_input);
+        calculation = (Button)findViewById(R.id.calculation);
 
 
         width_input.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -65,7 +69,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        calculation.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            }
+        });
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
