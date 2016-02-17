@@ -6,20 +6,22 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import com.example.amp.service.CalculationService;
+import android.widget.Spinner;
 
 public class MainActivity extends AppCompatActivity {
 
     EditText width_input;
-    EditText height_input;
-    EditText depth_input;
+    EditText length_input;
+    //EditText depth_input;
     EditText weight_input;
-    EditText destination_input;
+   //EditText destination_input;
+    Spinner destination_spinner;
+    Spinner item_spinner;
     Button calculation;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,12 +29,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         width_input = (EditText)findViewById(R.id.width_input);
-        height_input = (EditText)findViewById(R.id.height_input);
-        depth_input = (EditText)findViewById(R.id.depth_input);
+        length_input = (EditText)findViewById(R.id.length_input);
+        //depth_input = (EditText)findViewById(R.id.depth_input);
         weight_input= (EditText)findViewById(R.id.width_input);
-        destination_input = (EditText)findViewById(R.id.destination_input);
+        //destination_input = (EditText)findViewById(R.id.destination_input);
         calculation = (Button)findViewById(R.id.calculation);
-
+        destination_spinner = (Spinner)findViewById(R.id.destination_spinner);
+        String[] destinations = new String[]{"Canada", "United States", "International"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, destinations);
+        destination_spinner.setAdapter(adapter);
+        item_spinner = (Spinner)findViewById(R.id.item_spinner);
+        String[] items = new String[]{"Stamp", "Meter", "Postal Indicia"};
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items);
+        item_spinner.setAdapter(adapter2);
 
         width_input.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -41,19 +50,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        height_input.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        length_input.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
 
             }
         });
 
-        depth_input.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        /*depth_input.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
 
             }
-        });
+        });*/
 
         weight_input.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -62,12 +71,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        destination_input.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        /*destination_input.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
 
             }
-        });
+        });*/
 
         calculation.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

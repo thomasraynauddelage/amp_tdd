@@ -21,49 +21,49 @@ public class CalculationServiceTest {
 
     @Test
     public void properRangeWidthInputTest(){
-        CalculationService.getPrice(100,150,30,"Canada");
+        CalculationService.getPrice(100,150,30,"Canada","stamp");
     }
 
     @Test(expected=IllegalArgumentException.class)
     public void widthTooLowInputTest(){
-        CalculationService.getPrice(10,150,30,"Canada");
+        CalculationService.getPrice(10,150,30,"Canada","stamp");
     }
 
     @Test(expected=IllegalArgumentException.class)
     public void widthTooHighInputTest(){
-        CalculationService.getPrice(280,150,30,"Canada");
+        CalculationService.getPrice(280,150,30,"Canada","stamp");
     }
 
     @Test
     public void properRangeLengthInputTest(){
-        CalculationService.getPrice(100,150,30,"Canada");
+        CalculationService.getPrice(100,150,30,"Canada","stamp");
     }
 
     @Test(expected=IllegalArgumentException.class)
     public void lengthTooLowInputTest(){
-        CalculationService.getPrice(100,130,30,"Canada");
+        CalculationService.getPrice(100,130,30,"Canada","stamp");
 
     }
 
     @Test(expected=IllegalArgumentException.class)
     public void lengthTooHighInputTest(){
-        CalculationService.getPrice(100,500,30,"Canada");
+        CalculationService.getPrice(100,500,30,"Canada","stamp");
 
     }
 
     @Test
     public void properRangeWeightInputTest(){
-        CalculationService.getPrice(100,150,30,"Canada");
+        CalculationService.getPrice(100,150,30,"Canada","stamp");
     }
 
     @Test (expected=IllegalArgumentException.class)
     public void weigthTooLowInputTest(){
-        CalculationService.getPrice(100,150,2,"Canada");
+        CalculationService.getPrice(100,150,2,"Canada","stamp");
     }
 
     @Test (expected=IllegalArgumentException.class)
     public void weigthTooHighInputTest(){
-        CalculationService.getPrice(100,150,550,"Canada");
+        CalculationService.getPrice(100,150,550,"Canada","stamp");
     }
 
 
