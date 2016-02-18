@@ -15,9 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText width_input;
     EditText length_input;
-    //EditText depth_input;
     EditText weight_input;
-   //EditText destination_input;
     Spinner destination_spinner;
     Spinner item_spinner;
     Button calculation;
@@ -30,9 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         width_input = (EditText)findViewById(R.id.width_input);
         length_input = (EditText)findViewById(R.id.length_input);
-        //depth_input = (EditText)findViewById(R.id.depth_input);
         weight_input= (EditText)findViewById(R.id.width_input);
-        //destination_input = (EditText)findViewById(R.id.destination_input);
         calculation = (Button)findViewById(R.id.calculation);
         destination_spinner = (Spinner)findViewById(R.id.destination_spinner);
         String[] destinations = new String[]{"Canada", "United States", "International"};
@@ -57,26 +53,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        /*depth_input.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-
-            }
-        });*/
-
         weight_input.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
 
             }
         });
-
-        /*destination_input.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-
-            }
-        });*/
 
         calculation.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
