@@ -40,8 +40,71 @@ public class SyntaxAndDisplayTest extends AndroidTestCase {
     public void wrongTypeForWidthTest(){
 
         onView(withId(R.id.width_input)).perform(typeText("hi"));
+        onView(withId(R.id.length_input)).perform(typeText("150"));
+        onView(withId(R.id.weight_input)).perform(typeText("30"));
         onView(withId(R.id.calculation)).perform(click());
         onView(withText("Width should be a number!")).check(matches(isDisplayed()));
     }
+
+    @Test
+    public void wrongTypeForLengthTest(){
+
+        onView(withId(R.id.width_input)).perform(typeText("150"));
+        onView(withId(R.id.length_input)).perform(typeText("hi"));
+        onView(withId(R.id.weight_input)).perform(typeText("30"));
+        onView(withId(R.id.calculation)).perform(click());
+        onView(withText("Length should be a number!")).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void wrongTypeForWeightTest(){
+
+        onView(withId(R.id.width_input)).perform(typeText("150"));
+        onView(withId(R.id.length_input)).perform(typeText("150"));
+        onView(withId(R.id.weight_input)).perform(typeText("hi"));
+        onView(withId(R.id.calculation)).perform(click());
+        onView(withText("Weight should be a number!")).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void wrongRangeForWidthTest(){
+
+        onView(withId(R.id.width_input)).perform(typeText("500"));
+        onView(withId(R.id.length_input)).perform(typeText("150"));
+        onView(withId(R.id.weight_input)).perform(typeText("30"));
+        onView(withId(R.id.calculation)).perform(click());
+        onView(withText("Width must be between 90mm and 270mm")).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void wrongRangeForLengthTest(){
+
+        onView(withId(R.id.width_input)).perform(typeText("150"));
+        onView(withId(R.id.length_input)).perform(typeText("500"));
+        onView(withId(R.id.weight_input)).perform(typeText("30"));
+        onView(withId(R.id.calculation)).perform(click());
+        onView(withText("Length must be between 140mm and 380mm")).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void wrongRangeForWeightTest(){
+
+        onView(withId(R.id.width_input)).perform(typeText("150"));
+        onView(withId(R.id.length_input)).perform(typeText("150"));
+        onView(withId(R.id.weight_input)).perform(typeText("550"));
+        onView(withId(R.id.calculation)).perform(click());
+        onView(withText("Weight must be between 3.0g and 500.0g")).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void properInputTest(){
+        onView(withId(R.id.width_input)).perform(typeText("150"));
+        onView(withId(R.id.length_input)).perform(typeText("150"));
+        onView(withId(R.id.weight_input)).perform(typeText("30"));
+        onView(withId(R.id.calculation)).perform(click());
+        onView(withText("$1.00")).check(matches(isDisplayed()));
+    }
+
+
 
 }

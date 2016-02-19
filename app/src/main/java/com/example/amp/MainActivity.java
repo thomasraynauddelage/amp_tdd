@@ -12,6 +12,11 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.amp.service.CalculationService;
+
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
 public class MainActivity extends AppCompatActivity {
 
     EditText width_input;
@@ -30,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         width_input = (EditText)findViewById(R.id.width_input);
         length_input = (EditText)findViewById(R.id.length_input);
-        weight_input= (EditText)findViewById(R.id.width_input);
+        weight_input= (EditText)findViewById(R.id.weight_input);
         calculation = (Button)findViewById(R.id.calculation);
         destination_spinner = (Spinner)findViewById(R.id.destination_spinner);
         String[] destinations = new String[]{"Canada", "United States", "International"};
@@ -65,8 +70,29 @@ public class MainActivity extends AppCompatActivity {
 
         calculation.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                double width, length, weight, price;
+                String destination, item;
                 try {
-                    double width = Double.parseDouble(width_input.getText().toString());
+                    width = Double.parseDouble(width_input.getText().toString());
+                    try {
+                        length = Double.parseDouble(length_input.getText().toString());
+                        try {
+                            weight = Double.parseDouble(weight_input.getText().toString());
+                            destination = destination_spinner.getSelectedItem().toString();
+                            item = item_spinner.getSelectedItem().toString();
+                            try {
+                                price = CalculationService.getPrice(width,length,weight,destination,item);
+                                String formattedPrice = String.format("%.2f", price);
+                                output.setText("$"+formattedPrice);
+                            } catch (IllegalArgumentException e) {
+                                output.setText(e.getMessage());
+                            }
+                        } catch (NumberFormatException e) {
+                            output.setText("Weight should be a number!");
+                        }
+                    } catch (NumberFormatException e) {
+                        output.setText("Length should be a number!");
+                    }
                 } catch (NumberFormatException e) {
                     output.setText("Width should be a number!");
                 }
