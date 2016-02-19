@@ -14,9 +14,6 @@ import android.widget.TextView;
 
 import com.example.amp.service.CalculationService;
 
-import java.io.PrintWriter;
-import java.io.StringWriter;
-
 public class MainActivity extends AppCompatActivity {
 
     EditText width_input;

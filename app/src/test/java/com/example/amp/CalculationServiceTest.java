@@ -216,7 +216,35 @@ public class CalculationServiceTest {
         assert (CalculationService.getPrice(100,150,465,"International","meter")==19.39);
     }
 
+    @Test
+    public void stampForNonStandardLetterLessThan50gWidthAbove156ToCanadaTest() {
+        assert (CalculationService.getPrice(160, 150, 30, "Canada", "stamp") == 1.80);
+    }
 
+    @Test
+    public void stampForNonStandardLetterLessThan50gLengthAbove245ToCanadaTest() {
+        assert (CalculationService.getPrice(100, 250, 30, "Canada", "stamp") == 1.80);
+    }
+
+    @Test
+    public void stampForNonStandardLetterLessThan50gWidthAbove156ToUnitedStatesTest() {
+        assert (CalculationService.getPrice(160, 150, 30, "United States", "stamp") == 2.95);
+    }
+
+    @Test
+    public void stampForNonStandardLetterLessThan50gLengthAbove245ToUnitedStatesTest() {
+        assert (CalculationService.getPrice(100, 250, 30, "United States", "stamp") == 2.95);
+    }
+
+    @Test
+    public void stampForNonStandardLetterLessThan50gWidthAbove156ToInternationalTest() {
+        assert (CalculationService.getPrice(160, 150, 30, "International", "stamp") == 5.90);
+    }
+
+    @Test
+    public void stampForNonStandardLetterLessThan50gLengthAbove245ToInternationalTest() {
+        assert (CalculationService.getPrice(100, 250, 30, "International", "stamp") == 5.90);
+    }
 }
 
 

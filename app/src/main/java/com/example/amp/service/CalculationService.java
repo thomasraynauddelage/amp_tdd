@@ -24,7 +24,7 @@ public class CalculationService {
             throw new IllegalArgumentException("Not a valid type of item");
         }
         if (destination.equals("Canada")) {
-            if (weight <= 30) {
+            if (weight <= 30 && width<= 156 && length <=245) {
                 if (type.toLowerCase().equals("stamp")) {
                     price = 1.00;
                 }
@@ -32,7 +32,7 @@ public class CalculationService {
                     price = 0.80;
                 }
             }
-            else if (weight <= 50) {
+            else if (weight <= 50 && width<=156 && length <=245) {
                 if (type.toLowerCase().equals("stamp")) {
                     price = 1.20;
                 }
@@ -82,7 +82,7 @@ public class CalculationService {
             }
         }
         else if (destination.equals("United States")){
-            if (weight<=30){
+            if (weight<=30 && width<= 156 && length <=245){
                 if (type.toLowerCase().equals("stamp")) {
                     price = 1.20;
                 }
@@ -90,7 +90,7 @@ public class CalculationService {
                     price =1.19;
                 }
             }
-            else if  (weight<=50){
+            else if  (weight<=50 && width<= 156 && length <=245){
                 if (type.toLowerCase().equals("stamp")){
                     price =1.80;
                 }
@@ -125,7 +125,7 @@ public class CalculationService {
 
         }
         else if (destination.equals("International")){
-            if (weight<=30){
+            if (weight<=30 && width<= 156 && length <=245){
                 if(type.toLowerCase().equals("stamp")){
                     price= 2.50;
                 }
@@ -133,7 +133,7 @@ public class CalculationService {
                     price = 2.36;
                 }
             }
-            else if (weight<=50){
+            else if (weight<=50 && width<= 156 && length <=245){
                 if(type.toLowerCase().equals("stamp")){
                     price = 3.60;
                 }
