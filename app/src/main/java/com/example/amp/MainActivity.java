@@ -29,11 +29,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        // set the variables using id
         width_input = (EditText)findViewById(R.id.width_input);
         length_input = (EditText)findViewById(R.id.length_input);
         weight_input= (EditText)findViewById(R.id.weight_input);
         calculation = (Button)findViewById(R.id.calculation);
+
+        //
         destination_spinner = (Spinner)findViewById(R.id.destination_spinner);
         String[] destinations = new String[]{"Canada", "United States", "International"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, destinations);
@@ -69,15 +71,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 double width, length, weight, price;
                 String destination, item;
-                try {
+                try {//checking the width input
                     width = Double.parseDouble(width_input.getText().toString());
-                    try {
+                    try {// checking the length input
                         length = Double.parseDouble(length_input.getText().toString());
-                        try {
+                        try {//checking the weight input
                             weight = Double.parseDouble(weight_input.getText().toString());
                             destination = destination_spinner.getSelectedItem().toString();
                             item = item_spinner.getSelectedItem().toString();
-                            try {
+                            try {// calculating the price using all the input
                                 price = CalculationService.getPrice(width,length,weight,destination,item);
                                 String formattedPrice = String.format("%.2f", price);
                                 output.setText("$"+formattedPrice);
