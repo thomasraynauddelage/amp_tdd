@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     Spinner destination_spinner;
     Spinner item_spinner;
     Button calculation;
+    TextView output;
 
 
     @Override
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         String[] items = new String[]{"Stamp", "Meter", "Postal Indicia"};
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items);
         item_spinner.setAdapter(adapter2);
+        output = (TextView)findViewById(R.id.output);
 
         width_input.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -62,6 +65,11 @@ public class MainActivity extends AppCompatActivity {
 
         calculation.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                try {
+                    double width = Double.parseDouble(width_input.getText().toString());
+                } catch (NumberFormatException e) {
+                    output.setText("Width should be a number!");
+                }
             }
         });
 
